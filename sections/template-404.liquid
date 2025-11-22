@@ -1,0 +1,49 @@
+<div class="max-w-md">
+  <div class="text-5xl font-bold my-4">{{ section.settings.title }}</div>
+  <div clas="my-4">
+    <p class="text-base md:text-xl leading-normal">{{ section.settings.subtext_title }}</p>
+  </div>
+
+  <div class="my-4">
+    <a
+      href="{{ section.settings.button_url | default: routes.root_url }}"
+      class="inline-block px-6 py-3 bg-black text-white font-medium text-xs uppercase tracking-wide rounded-md"
+    >
+      {{- section.settings.button_label -}}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Template 404",
+  "tag": "section",
+  "class": "flex items-center justify-center text-center py-7 h-screen",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "404",
+      "label": "404 Heading Title"
+    },
+    {
+      "type": "text",
+      "id": "subtext_title",
+      "default": "The page you were looking for does not exist",
+      "label": "404 Subtext Title"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Go back to Home Page",
+      "label": "404 Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "404 Button URL",
+      "info": "Leave blank to use the home page URL"
+    }
+  ]
+}
+{% endschema %}
